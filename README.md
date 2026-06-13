@@ -14,5 +14,7 @@
 
 4. Postman
    - Instalar postman solo dar siguiente 
+   - Click en Continue Without an acoount
+   - Open lightweight API Client
 
 

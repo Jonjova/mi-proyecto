@@ -23,10 +23,9 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role ?? 'user', // Ejemplo de asignación de rol
+            'role' => $request->role ?? 'user',
         ]);
 
-        // Opcional: Genera un token automáticamente tras el registro [citation:6]
         $token = JWTAuth::fromUser($user);
 
         return response()->json(['message' => 'Usuario creado', 'user' => $user, 'token' => $token], 201);
@@ -54,15 +53,12 @@ class AuthController extends Controller
 
     public function logout()
     {
-        // Invalida (blacklist) el token actual para que no pueda usarse de nuevo [citation:4]
         auth()->logout();
-
         return response()->json(['message' => 'Sesión cerrada correctamente']);
     }
 
     public function refresh()
     {
-        // Genera un nuevo token e invalida el anterior automáticamente
         return $this->respondWithToken(auth()->refresh());
     }
 
@@ -71,7 +67,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60 // Tiempo de vida en segundos
+            'expires_in' => config('jwt.ttl') * 60  // ✅ Línea corregida
         ]);
     }
 }
