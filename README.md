@@ -4,6 +4,7 @@
    - https://git-scm.com/install/windows (Click en apartado de windows y en Click here to download)
    - https://github.com/leokhoa/laragon/releases/download/6.0.0/laragon-wamp.exe (Descargar ejecutable)
    - https://www.postman.com/downloads/ (Descargar el de windows)
+   - https://hoppscotch.io/ (web en linea)
 
 2. Git
    - Instalar solo dar siguiente hasta el final 
@@ -17,4 +18,5 @@
    - Click en Continue Without an acoount
    - Open lightweight API Client
 
-
+5. hoppscotch (opcional a postman para consumir endpoints)
+   - Instalar 
