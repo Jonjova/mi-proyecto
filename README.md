@@ -41,6 +41,9 @@ cd mi-proyecto
 # Crear modelo, controlador, migración y requests
 php artisan make:model Venta -m -c --api --requests
 
+# Crear mi entorno a partir de copiar el .env.example
+cp .env.example .env
+
 # Configurar base de datos en .env
 # DB_CONNECTION=mysql
 # DB_HOST=127.0.0.1
