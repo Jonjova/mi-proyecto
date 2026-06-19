@@ -20,31 +20,48 @@ API RESTful para gestión de ventas con Laravel 11, incluye CRUD completo, valid
 
 ## 🚀 Instalación
 
-### 1. Instalar Git
-- Ejecutar el instalador → Siguiente → Siguiente → Finalizar
+# ============================================
+# CREAR NUEVO PROYECTO LARAVEL
+# ============================================
+# Abrir terminal (CMD o PowerShell) y ejecutar:
 
-### 2. Instalar Laragon
-- Ejecutar el instalador → Siguiente hasta finalizar
-- Abrir Laragon → Menú → `PATH variable de entornos` → `Add to Laragon Path`
+# Crear proyecto Laravel 11
+composer create-project laravel/laravel api-ventas
 
-### 3. Instalar Postman
-- Ejecutar el instalador → Siguiente hasta finalizar
-- Al abrir: `Continue Without an account` → `Open lightweight API Client`
+# Navegar al directorio del proyecto
+cd api-ventas
 
-### 4. Configurar Proyecto Laravel
-
-```bash
-# Crear nuevo proyecto
-composer create-project laravel/laravel mi-proyecto
-cd mi-proyecto
-
-# Crear modelo, controlador, migración y requests
+# ============================================
+# CREAR MODELO, CONTROLADOR, MIGRACIÓN Y REQUESTS
+# ============================================
+# Crear todo de una vez con los flags necesarios
+# -m: crea migración
+# -c: crea controlador
+# --api: crea controlador con métodos API (index, store, show, update, destroy)
+# --requests: crea archivos de validación (Form Requests)
 php artisan make:model Venta -m -c --api --requests
 
-# Crear mi entorno a partir de copiar el .env.example
-cp .env.example .env
+# Esto generará:
+# - app/Models/Venta.php
+# - database/migrations/xxxx_xx_xx_create_ventas_table.php
+# - app/Http/Controllers/VentaController.php
+# - app/Http/Requests/StoreVentaRequest.php
+# - app/Http/Requests/UpdateVentaRequest.php
 
-# Configurar base de datos en .env
+# ============================================
+# CONFIGURAR ENTORNO (.env)
+# ============================================
+# Crear archivo .env a partir de .env.example
+copy .env.example .env
+# En Linux/Mac: cp .env.example .env
+
+# Generar clave de aplicación
+php artisan key:generate
+
+# ============================================
+# CONFIGURAR BASE DE DATOS
+# ============================================
+# Abrir el archivo .env y configurar:
 # DB_CONNECTION=mysql
 # DB_HOST=127.0.0.1
 # DB_PORT=3306
@@ -52,5 +69,26 @@ cp .env.example .env
 # DB_USERNAME=root
 # DB_PASSWORD=
 
-# Ejecutar migración
+# Crear la base de datos en MySQL (usando Laragon)
+# Abrir Laragon → Menú → MySQL → phpMyAdmin
+# Crear una nueva base de datos llamada "ventas_db"
+
+# O desde terminal MySQL:
+mysql -u root -p
+# (presionar Enter sin contraseña)
+CREATE DATABASE ventas_db;
+EXIT;
+
+# ============================================
+# INSTALAR DEPENDENCIAS Y EJECUTAR
+# ============================================
+# Instalar dependencias PHP
+composer install
+
+# Ejecutar migraciones para crear la tabla
 php artisan migrate
+
+# Iniciar servidor de desarrollo
+php artisan serve
+
+# El proyecto estará disponible en: http://127.0.0.1:8000
