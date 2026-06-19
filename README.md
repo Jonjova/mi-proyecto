@@ -35,6 +35,20 @@ API RESTful para gestión de ventas con Laravel 11, incluye CRUD completo, valid
 
 ```bash
 # ============================================
+# INSTALAR DEPENDENCIAS Y EJECUTAR
+# ============================================
+# Instalar dependencias PHP
+composer install
+
+# Ejecutar migraciones para crear la tabla
+php artisan migrate
+
+# Iniciar servidor de desarrollo
+php artisan serve
+
+# El proyecto estará disponible en: http://127.0.0.1:8000
+
+# ============================================
 # CREAR NUEVO PROYECTO LARAVEL
 # ============================================
 # Abrir terminal (CMD o PowerShell) y ejecutar:
@@ -92,17 +106,3 @@ mysql -u root -p
 # (presionar Enter sin contraseña)
 CREATE DATABASE ventas_db;
 EXIT;
-
-# ============================================
-# INSTALAR DEPENDENCIAS Y EJECUTAR
-# ============================================
-# Instalar dependencias PHP
-composer install
-
-# Ejecutar migraciones para crear la tabla
-php artisan migrate
-
-# Iniciar servidor de desarrollo
-php artisan serve
-
-# El proyecto estará disponible en: http://127.0.0.1:8000
