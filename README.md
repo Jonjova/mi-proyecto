@@ -20,6 +20,20 @@ API RESTful para gestión de ventas con Laravel 11, incluye CRUD completo, valid
 
 ## 🚀 Instalación
 
+### 1. Instalar Git
+- Ejecutar el instalador → Siguiente → Siguiente → Finalizar
+
+### 2. Instalar Laragon
+- Ejecutar el instalador → Siguiente hasta finalizar
+- Abrir Laragon → Menú → `PATH variable de entornos` → `Add to Laragon Path`
+
+### 3. Instalar Postman
+- Ejecutar el instalador → Siguiente hasta finalizar
+- Al abrir: `Continue Without an account` → `Open lightweight API Client`
+
+### 4. Configurar Proyecto Laravel
+
+```bash
 # ============================================
 # CREAR NUEVO PROYECTO LARAVEL
 # ============================================
